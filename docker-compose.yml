@@ -1,0 +1,8 @@
+version: "3"
+services:
+    noisemon_app:
+        build: .
+        container_name: "summ"
+        ports:
+            - "8000:9800"
+        
