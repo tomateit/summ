@@ -8,3 +8,4 @@
 ## 06 Aug 2021
 1. Research on common metrics and datasets
     - Refer to notebook 0 in `notebooks/` directory
+2. Started to implement baseline solution
