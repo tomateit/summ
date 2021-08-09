@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>Model demo example</title>
+</head>
+
+<body>
+
+    <h1>Insert text here</h1>
+    <form action="/" method="POST">
+        <textarea name="text"></textarea>
+        <input type="number" name="constraint"></input>
+        <input type="submit"></input>
+    </form>
+    <div id="result"></div>
+    <script>
+        const resultField = document.querySelector("#result");
+        const formElement = document.querySelector("form");
+        formElement.addEventListener("submit", processForm);
+        function processForm(event) {
+            event.preventDefault();
+            const text = formElement.elements["text"].value;
+            let constraint = formElement.elements["constraint"].value;
+            if (text.length < 10) {
+                alert("The text is too short!");
+                return;
+            }
+            if (isNaN(parseInt(constraint))) {
+                constraint = text.split(/[.,!?]/).length - 1;
+            }
+            if (constraint < 1) {
+                constraint = 1;
+            }
+
+            fetch("/", {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify({text, constraint}) // body data type must match "Content-Type" header
+            }).then(response => response.json())
+            .then(data => {
+                const newText = data["text"];
+                resultField.innerHTML = newText;
+            })
+        }
+    </script>
+</body>
+
+</html>
