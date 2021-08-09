@@ -16,7 +16,7 @@ RUN poetry install --no-dev
 
 COPY ./ /code/
 
-RUN /code/scripts/download_spacy_model.sh
+# RUN /code/scripts/download_spacy_model.sh
 
 COPY ./.env.docker ./.env
 

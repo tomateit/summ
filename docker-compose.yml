@@ -1,6 +1,6 @@
 version: "3"
 services:
-    noisemon_app:
+    summ_app:
         build: .
         container_name: "summ"
         ports:
