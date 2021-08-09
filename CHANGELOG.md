@@ -21,3 +21,8 @@
     - The third-party algorithm also does not perform well enough.
     - Nothing works for now, still a lot left to do.
 2. Drafted hybrid approach on abstractive summarization model.
+
+### 09 Aug 2021
+1. Monday. I did some web-demo stuff bc I seemingly out of my schedule.
+    - Note: as a former web dev I would never use current approach to writing a webapp, but for now the least possible action principle is on.
+2. Some updates on metrics (third-party sources)
