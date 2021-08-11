@@ -13,10 +13,10 @@ python-dotenv = "^0.18.0"
 regex = "^2021.7.6"
 bert-extractive-summarizer = "^0.7.1"
 sentencepiece = "^0.1.96"
+torch = "^1.9.0"
 
 
 [tool.poetry.dev-dependencies]
-torch = "^1.9.0"
 matplotlib = "^3.4.2"
 scikit-learn = "^0.24.2"
 spacy = "^3.1.0"
