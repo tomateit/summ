@@ -139,13 +139,14 @@
         <div id="result"></div>
     </div>
     <script>
-        let loader, resultField, formElement, loadingElement = null
+        let loader, resultField, formElement, loadingElement, sumbitElement = null
 
 document.addEventListener("DOMContentLoaded", ()=> {
     console.log("DOM is loaded");
     resultField = document.querySelector("#result");
     formElement = document.querySelector("form");
     loadingElement = document.querySelector("#page h2")
+    sumbitElement = document.querySelector("#page form input[type='submit']")
     formElement.addEventListener("submit", processForm)
 });
 
@@ -182,12 +183,13 @@ function processForm(event) {
     function showLoading() {
         loadingElement.innerHTML = 'Receiving data'
         loader = spinner(loadingElement)
-        
+        sumbitElement.setAttribute("disabled", "");
     }
     function hideLoading() {
         loadingElement.innerHTML = 'Insert text down below'
         loadingElement.dataset.after = ''
         clearInterval(loader)
+        sumbitElement.removeAttribute('disabled');
     }
     showLoading()
     fetch("/", {
