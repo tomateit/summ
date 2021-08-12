@@ -7,3 +7,4 @@ docs/
 meta/
 notebooks/
 __pycache__/
+*.tar
