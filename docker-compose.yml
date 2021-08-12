@@ -3,6 +3,7 @@ services:
     summ_app:
         build: .
         container_name: "summ"
+        restart: always
         ports:
             - "8911:8911"
         
