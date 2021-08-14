@@ -25,4 +25,15 @@
 ### 09 Aug 2021
 1. Monday. I did some web-demo stuff bc I seemingly out of my schedule.
     - Note: as a former web dev I would never use current approach to writing a webapp, but for now the least possible action principle is on.
-2. Some updates on metrics (third-party sources)
+2. Some updates on metrics (third-party sources).
+
+### 12 Aug 2021
+1. Actual research and loading of datasets.
+
+### 13 Aug 2021
+1. Writing loader and parser for downloaded datasets.
+
+### 14 Aug 2012
+1. Loading more datasets for compression.
+2. Separating WIP parts from extended solution into separate notebooks to make exeriments on.
+3. First drafts on extended solution summarization part.
