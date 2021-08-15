@@ -33,7 +33,16 @@
 ### 13 Aug 2021
 1. Writing loader and parser for downloaded datasets.
 
-### 14 Aug 2012
+### 14 Aug 2021
 1. Loading more datasets for compression.
 2. Separating WIP parts from extended solution into separate notebooks to make exeriments on.
 3. First drafts on extended solution summarization part.
+
+### 15 Aug 2021
+1. Started grokking the reference code repo:
+    - Forked it and dig into the code.
+    - Got a grasp of file formats used there.
+2. Started re-implementing it according to my needs, as long as I only like the idea:
+    - All will be LaBSE based now.
+    - Custom data pre-processing - the new model is not uncased, so why (the file in the current repo).
+    - Implemented sentence scoring method (the paper requires) but as a surrogate (the file in the fork repo).
