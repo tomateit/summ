@@ -44,5 +44,14 @@
     - Got a grasp of file formats used there.
 2. Started re-implementing it according to my needs, as long as I only like the idea:
     - All will be LaBSE based now.
+    - I won't use BertExt, as the paper suggests :-\ .
     - Custom data pre-processing - the new model is not uncased, so why (the file in the current repo).
-    - Implemented sentence scoring method (the paper requires) but as a surrogate (the file in the fork repo).
+    - Implemented sentence scoring method (the paper requires) but as a surrogate (the file in the fork repo; I'm still indecisive on how to better structure this work).
+
+### 16 Aug 2021
+1. Gained a profound understanding of data preparation process. 
+2. Did refactoring of the original code and wrote my own loader based on more transparent technologies:
+    - Everything is named properly
+    - Everything is consequetive, no repetitive looping and stuff like that
+    - No fastNLP, only PyTorch Dataset
+    - Rouge metric is python based, not some horrible perl solution
