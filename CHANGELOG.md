@@ -49,9 +49,18 @@
     - Implemented sentence scoring method (the paper requires) but as a surrogate (the file in the fork repo; I'm still indecisive on how to better structure this work).
 
 ### 16 Aug 2021
-1. Gained a profound understanding of data preparation process. 
+1. Gained a profound understanding of data preparation process required for the model. 
 2. Did refactoring of the original code and wrote my own loader based on more transparent technologies:
     - Everything is named properly
     - Everything is consequetive, no repetitive looping and stuff like that
     - No fastNLP, only PyTorch Dataset
     - Rouge metric is python based, not some horrible perl solution
+
+### 17 Aug 2021
+1. Grocked the model. Rewrote it to be more concise and pretty.
+2. Grocked the scheduler. Rewrote it based on native torch scheduler.
+3. Grocked the loss (almost). Reimplemented it as a function.
+4. Conclusion: 
+    - i wrote a ton of code, yet it lacks integrity (probably will fail to run, IDK). 
+    - gonna negotiate the APIs and ensure everything is vectorized and differentiable. 
+    - i still wonder how I gonna train it lacking 8 T100 GPUs. Prbbly gonna try colab.
