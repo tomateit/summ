@@ -104,6 +104,9 @@ def convert_dataset(arguments):
         print("Processing ", folder.parent.name)
         for file in folder.iterdir():
             text, summary = process_file(file)
+            if (not text) or (not summary):
+                print(f"{file.name} is missing data")
+                continue
             line = json.dumps(dict(text=text, summary=summary), ensure_ascii=False)
             append_line(output_file, line)
 

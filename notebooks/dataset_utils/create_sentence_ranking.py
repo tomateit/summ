@@ -43,6 +43,7 @@ def create_ranking(arguments):
 
     tokenize = partial(tokenizer, padding=True, truncation=True, max_length=512, return_tensors='pt')
     data = read_jsonl(input_file)
+
     rankings = []
     for chunk in tqdm(data):
         tokenized_sents = tokenize(chunk["text"])
@@ -50,11 +51,13 @@ def create_ranking(arguments):
             model_output = model(**tokenized_sents)
             embeddings = model_output.pooler_output
             embeddings = torch.nn.functional.normalize(embeddings)
+            rankings.append(sort_vectors_by_centroid_distance(embeddings))
 
     with open(output_file, "w") as fout:
         for line in rankings:
             line = json.dumps(dict(sent_id=line)) + "\n"
             fout.write(line)
+        print(f"Wrote {len(rankings)} lines to {output_file.name}")
 
     
     
@@ -71,6 +74,6 @@ if __name__ == '__main__':
     parser.add_argument('--write_path', type=str, required=True,
         help='Path to dir to store the rankings {sent_id: [int]}')
 
-    args = parser.parse_args()  
+    args = parser.parse_args()
 
     create_ranking(args)
