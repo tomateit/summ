@@ -1,4 +1,4 @@
-    from pathlib import Path
+from pathlib import Path
 import json
 from typing import List, Dict
 
@@ -71,10 +71,13 @@ class CNNDMDataset(Dataset):
             
         # SORT THE CANDIDATES
         candidate_rouge_scores.sort(key=lambda x : x[2], reverse=True)
+
         
         # write candidate indices and score
         candidate_summaries_index_sorted, candidate_summaries_as_text_sorted, candidate_summaries_rouge_sorted = zip(*candidate_rouge_scores) # indices of candidate_id, but sorted by rouge score
         
+        
+    
         candidate_summaries_tokenized_sorted = self.tokenizer(candidate_summaries_as_text_sorted)
 
         return {

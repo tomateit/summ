@@ -46,7 +46,11 @@ def create_ranking(arguments):
 
     rankings = []
     for chunk in tqdm(data):
-        tokenized_sents = tokenize(chunk["text"])
+        text = chunk["text"]
+        if not text:
+            rankings.append([]) # we can't just skip em because it will spoil the alignment
+            continue
+        tokenized_sents = tokenize(text)
         with torch.no_grad():
             model_output = model(**tokenized_sents)
             embeddings = model_output.pooler_output
